@@ -21,7 +21,7 @@ Time - timestamp for the review
 Summary - brief summary of the review
 Text - text of the review
 
-# Question 3
+
 
 a) Objective: Predicting the sentiment of the given review
 
