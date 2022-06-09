@@ -1,4 +1,4 @@
-# Amazon-fine-food-reviews
+# Amazon-fine-food-reviews sentiment Analysis
 The data set consists of 14 features along with the target value which is used to predict whether the person has heart disease or not ,It is a multivariate data set it consists or includes a number of distinct mathematical or statistical variables, as well as multivariate numerical data analysis.
 
 The Amazon Fine Food Reviews dataset consists of reviews of fine foods from Amazon.
