@@ -199,80 +199,11 @@ def task1(path):
 
     RF(X_train, X_test, y_train, y_test)
 
-def task2():
-    
-#This function is used to calcuate the distance between the tow data points
-    def euclidian_distance(x1,x2):
-        if(len(x1)==len(x2)):
-            """distance=0
-            for i in range(len(x1)-1):
-                distance+=(x2[i]-x1[i])**2
-                return np.sqrt(distance)"""
-            return np.sqrt(np.sum((x1 - x2) ** 2))
-        else:
-            raise ValueError('test and train data are of different shape')
-    
-    
-
-    class KNN_own:
-        def __init__(self,k):
-            self.k=k
-        
-        def fit(self,X,y):
-            self.X_train = X
-            self.y_train = y
-
-        def predict(self,X):#predict function 
-            predictions=[self.helper_predict(x) for x in X]
-            return predictions
-
-
-        def helper_predict(self,x): #This function calculates each test x value to all x train  data and sort them and retrun the nearest one x test located to 
-            dist = [euclidian_distance(x,x_train) for x_train in self.X_train]
-            k_indices = np.argsort(dist)[:self.k]
-            k_neighbor_labels = [self.y_train[i] for i in k_indices]
-            #print(k_indices)
-            for i in range(len(k_neighbor_labels)-1):
-                sort_dict={}
-                if k_indices[i] not in sort_dict:
-                    sort_dict[k_neighbor_labels[i]]=1
-                else:
-                    sort_dict[k_neighbor_labels[i]]+=1
-                data = list(sort_dict.items())
-                data_sorted = sorted(data,key=itemgetter(1),reverse= True)
-                print(data_sorted)
-                #sort_dict={}
-            return data_sorted[0][0]
-        
-        def score(self,x,y): # calculates the number of correct predictions to its length of total true test labels.
-            y_pred= self.predict(x)
-            return np.sum(y == y_pred) / len(y)
-        def accuracy(self,y_test, y_pred):
-            accuracy = np.sum(y_test == y_pred) / len(y_test)
-            return accuracy
-    def call_knn():
-        
-
-        iris = datasets.load_iris()
-        X, y = iris.data, iris.target
-
-        X_train, X_test, y_train, y_test = train_test_split(
-            X, y, test_size=0.2, random_state=42
-        )
-
-        k = 3
-        clf = KNN_own(k=k)
-        clf.fit(X_train, y_train)
-        predictions = clf.predict(X_test)
-        print("KNN classification accuracy", clf.accuracy(y_test, predictions))
-
-    call_knn()   
-    
 
 if __name__ == "__main__":
     # Imports
     task1('../data/Reviews.csv')
-    task2()
+    
     
     
 
